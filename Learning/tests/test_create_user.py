@@ -29,9 +29,15 @@ def test_user_creation_json():
 
     endpoint = '/api/users'
     url = base + endpoint
-    json_data = open('../test_data/data.json', 'r').read()
-    print("JSON_DATA:", json_data)
+    fp = open('../test_data/data.json', 'r')
+    json_data = fp.read()
+    print("JSON_DATA read directly from file:", json_data)
     payload = json.loads(json_data)  #converts json to python
+
+    py_dic = json.load(fp)
+
+    print(py_dic)
+    #print(f"payload from loads: {payload} \n python load from load: {py_load}")
     print("PAYLOAD:",payload)
     dict = {"name": "agrwal", "job": "api tester"}
     print("PYTHON DICT:", dict)

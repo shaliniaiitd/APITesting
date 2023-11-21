@@ -1,5 +1,5 @@
 import requests
-import jsonpath
+#import jsonpath
 
 
 # url = 'https://reqres.in/api/users?page=2'
@@ -7,7 +7,7 @@ import jsonpath
 # resp = requests.get(url)
 
 resp = requests.get('https://reqres.in/api/users',params={"page":2})
-
+print(resp.url)
 print(resp.json())  # can view at https://jsonviewer.stack.hu/
 assert resp.json()['data'][0]["first_name"] == "Michael", "name did not match"
 # print(dir(resp))    #list of all properties(methods) available
