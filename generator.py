@@ -10,3 +10,23 @@ print(issubclass(Iterator, Iterable)) #True
 # Usage : For e.g fetching 1000 rows from database to work on each row one by one
 # No need to store al 1000 results in memory.
 # So, generators are memory efficient.
+
+def my_generator(n):
+
+    # initialize counter
+    value = 0
+
+    # loop until counter is less than n
+    while value < n:
+
+        # produce the current value of the counter
+        yield value
+
+        # increment the counter
+        value += 1
+
+# iterate over the generator object produced by my_generator
+for value in my_generator(3):
+
+    # print each value produced by generator
+    print(value)

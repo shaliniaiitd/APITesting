@@ -1,5 +1,8 @@
 # Python program to illustrate functions
 # can be passed as arguments to other functions
+
+import time
+
 def shout(text):
     return text.upper()
 
@@ -43,6 +46,7 @@ def hello_decorator(func):
 
         # calling the actual function now
         # inside the wrapper function.
+
         func(*args,**kwargs)
 
         print("This is after function execution")
@@ -85,3 +89,49 @@ def func_args(*args):
 lst = ["variable", "number", "of", "parameters"]
 
 func_args(*lst)
+
+@hello_decorator
+def func_args(*args):
+    for arg in args:
+        print(arg)
+
+lst = ["variable", "number", "of", "parameters"]
+
+func_args(*lst)
+
+#Write a decorator to add two numbers
+
+# def sum_decorator(func):
+#     def inner_f(x,y):
+#         return func(x) + y
+#     return inner_f
+
+#@sum_decorator
+
+#When to use a decorator
+#1) When we wish to change behaviour of a function without changing the function itself.
+#2) When we want to use a functionality across many functions - like finding computation time of a function.
+#3) Typical use cases are : logging, caching, test performance, authorization.
+
+#Write a decorator for print_hello to print Hello name(in capitals)
+
+def my_decorator(print_hello):
+    def inner_f(name):
+        name = name.upper()
+        print_hello(name)
+    return inner_f
+
+@my_decorator
+def print_hello(name):
+    print("Hello", name)
+
+
+print_hello("shalini")
+
+#decorator to add 2 numbers
+
+def add_decorator(sum):
+    def inner_f(x,y):
+        num = x + sum(y)
+
+    return

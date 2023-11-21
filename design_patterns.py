@@ -104,7 +104,7 @@ if __name__ == "__main__":
 # Example: We want to make a phone. It has various features -
 # Classical way - to call parameterised constructor
 
-phone_obj = phone(os, ram screen_size, cost, color)
+#phone_obj = phone(os, ram screen_size, cost, color)
 # we may want to keep all features configurable(may or may not specify.
 # This is provided by builder design pattern, through a class say PhoneBuilder
 # Where we have setter for each parameter, and all the setter methods return the object of type,PhoneBuilder

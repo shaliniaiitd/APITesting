@@ -50,3 +50,14 @@ with MongoDBConnectionManager('localhost', '27017') as mongo:
     collection = mongo.connection.SampleDb.test
     data = collection.find({'_id': 1})
     print(data.get('name'))
+
+#Using @contextmanager
+
+from contextlib import contextmanager
+
+@contextmanager
+def MyContextManager():
+    print("This is treated as __enter__")
+    yield
+    print("This is treated as __exit__")
+
